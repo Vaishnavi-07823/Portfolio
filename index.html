@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vaishnavi Trivedi – Cybersecurity Student & Ethical Hacker. Portfolio showcasing skills in network security, penetration testing, and digital forensics." />
+  <meta name="keywords"
+    content="Vaishnavi Trivedi, Cybersecurity, Ethical Hacking, CEH, Kali Linux, Penetration Testing, Portfolio" />
+  <meta name="author" content="Vaishnavi Trivedi" />
+  <meta property="og:title" content="Vaishnavi Trivedi | Cybersecurity Portfolio" />
+  <meta property="og:description"
+    content="Cybersecurity student specializing in vulnerability assessment, ethical hacking, and network security." />
+  <title>Vaishnavi Trivedi | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-radial"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span>&lt;</span>VT<span>/&gt;</span>
+        <span class="cursor-blink"></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Lab</a></li>
+        <li><a href="#certifications">Certs</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Hello, World! 👋</div>
+          <h1 class="hero-name">Vaishnavi Trivedi</h1>
+          <div class="hero-typing-container">
+            <span id="typing-text"></span><span class="cursor"></span>
+          </div>
+          <p class="hero-desc">
+            A passionate Cybersecurity student with hands-on experience at the Cyber Police Station, Nagpur.
+            I specialize in vulnerability assessment, ethical hacking, and network defense — building a safer digital
+            world, one exploit at a time.
+          </p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-primary" id="hero-contact-btn">
+              <i class="fas fa-terminal"></i> Get in Touch
+            </a>
+            <a href="#projects" class="btn btn-outline" id="hero-lab-btn">
+              <i class="fas fa-flask"></i> View Lab Work
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">2+</div>
+              <div class="stat-label">Years Learning</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Tools Mastered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">CTF</div>
+              <div class="stat-label">Competitor</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-ring">
+            <img src="profile.png" alt="Vaishnavi Trivedi" class="hero-img" />
+          </div>
+          <div class="hero-badge">
+            <span class="dot"></span>
+            CEH v13 Trained
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Who Am I?</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm <span class="highlight">Vaishnavi Trivedi</span>, a B.Tech Cybersecurity student at
+            G.H. Raisoni College of Engineering, Nagpur, with a deep passion for understanding how digital systems
+            can be attacked and defended.
+          </p>
+          <p>
+            I had the invaluable opportunity to intern at the <span class="highlight">Cyber Police Station (Cyber Cell),
+              Nagpur City</span>,
+            where I assisted cyber crime officers in reviewing online fraud, phishing, and social media misuse cases.
+            I was exposed to real-world digital forensics and evidence handling procedures.
+          </p>
+          <p>
+            In my self-driven time, I run a <span class="highlight">cybersecurity home lab</span> with VirtualBox, Kali
+            Linux, and
+            Windows machines — practicing real attack and defense scenarios and solving CTF challenges on platforms like
+            TryHackMe and Hack The Box.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item"><span class="icon"><i class="fas fa-map-marker-alt"></i></span> Nagpur, India
+            </div>
+            <div class="highlight-item"><span class="icon"><i class="fas fa-graduation-cap"></i></span> B.Tech
+              Cybersecurity</div>
+            <div class="highlight-item"><span class="icon"><i class="fas fa-shield-alt"></i></span> CEH v13 Trained
+            </div>
+            <div class="highlight-item"><span class="icon"><i class="fas fa-flag"></i></span> CTF Competitor</div>
+            <div class="highlight-item"><span class="icon"><i class="fas fa-microscope"></i></span> Forensics Exposure
+            </div>
+            <div class="highlight-item"><span class="icon"><i class="fas fa-network-wired"></i></span> Network Security
+            </div>
+          </div>
+        </div>
+        <div class="about-card reveal">
+          <h3><i class="fas fa-graduation-cap"></i> &nbsp; Education</h3>
+          <div class="edu-item">
+            <div class="edu-degree">B.Tech – Cyber Security</div>
+            <div class="edu-school">G.H. Raisoni College of Engineering, Nagpur</div>
+            <div class="edu-year">2023 – 2027</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">HSC – Information Technology</div>
+            <div class="edu-school">Priaanti Junior College, Nagpur</div>
+            <div class="edu-year">2021 – 2023</div>
+          </div>
+          <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);">
+            <h3><i class="fas fa-envelope"></i> &nbsp; Contact Info</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+              <div class="highlight-item" style="font-size: 0.82rem;">
+                <span class="icon"><i class="fas fa-phone"></i></span>
+                <a href="tel:9604785331" style="color: var(--text-secondary); text-decoration: none;">+91 9604785331</a>
+              </div>
+              <div class="highlight-item" style="font-size: 0.82rem;">
+                <span class="icon"><i class="fas fa-at"></i></span>
+                <a href="mailto:vaishnavitrivedi240@gmail.com"
+                  style="color: var(--text-secondary); text-decoration: none;">vaishnavitrivedi240@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Technical Arsenal</div>
+        <h2 class="section-title">Skills & Tools</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">💻</div>
+            <h3>Programming & Scripting</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Windows CMD</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">🛡️</div>
+            <h3>Cybersecurity Tools</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kali Linux</span>
+            <span class="skill-tag">Nmap</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Burp Suite</span>
+            <span class="skill-tag">Metasploit</span>
+            <span class="skill-tag">OWASP ZAP</span>
+            <span class="skill-tag">SQLMap</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">🏆</div>
+            <h3>Platforms & Labs</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">TryHackMe</span>
+            <span class="skill-tag">Hack The Box</span>
+            <span class="skill-tag">EC-Council iLabs</span>
+            <span class="skill-tag">VirtualBox</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">🔍</div>
+            <h3>Security Domains</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Vulnerability Assessment</span>
+            <span class="skill-tag">Web Security</span>
+            <span class="skill-tag">Network Scanning</span>
+            <span class="skill-tag">Cyber Crime Awareness</span>
+            <span class="skill-tag">Digital Forensics</span>
+            <span class="skill-tag">APK Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Work History</div>
+        <h2 class="section-title">Experience</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title">Cybersecurity Intern</div>
+              <div class="timeline-date">Dec 2025 – Jan 2026</div>
+            </div>
+            <div class="timeline-company">
+              <i class="fas fa-building"></i> &nbsp; Cyber Police Station (Cyber Cell), Nagpur City
+            </div>
+            <ul class="timeline-list">
+              <li>Assisted cyber crime officers in reviewing reported cases including online fraud, phishing, and social
+                media misuse.</li>
+              <li>Supported cyber crime complaint documentation and preliminary technical analysis under supervision.
+              </li>
+              <li>Gained hands-on exposure to basic cyber forensic examination of digital evidence.</li>
+              <li>Assisted in social media analysis and financial fraud case review.</li>
+              <li>Performed introductory APK analysis to understand malicious mobile application behavior.</li>
+              <li>Learned cyber crime investigation workflow, cyber law basics (IT Act), and evidence handling
+                procedures.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAB / PROJECTS ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Practical Work</div>
+        <h2 class="section-title">Lab & Projects</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-icon">🖥️</div>
+          <div class="project-title">Cybersecurity Home Lab</div>
+          <div class="project-desc">
+            Built a fully isolated cybersecurity home lab using VirtualBox with Kali Linux and Windows target machines.
+            Practiced real-world attack techniques: network scanning, SQL injection, and XSS in controlled, safe
+            environments.
+            Simulates a professional penetration testing setup for continuous skill development.
+          </div>
+          <div class="project-tags">
+            <span class="tag">VirtualBox</span>
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">SQLMap</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-icon">🚩</div>
+          <div class="project-title">CTF Challenges</div>
+          <div class="project-desc">
+            Actively competed in Capture The Flag (CTF) challenges in July and August, solving real-world hacking
+            puzzles covering web exploitation, cryptography, reverse engineering, and OSINT on platforms like
+            TryHackMe, Hack The Box, and EC-Council iLabs.
+          </div>
+          <div class="project-tags">
+            <span class="tag">TryHackMe</span>
+            <span class="tag">Hack The Box</span>
+            <span class="tag">Web Exploit</span>
+            <span class="tag">Cryptography</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-icon">🔬</div>
+          <div class="project-title">Cyber Cell Case Review</div>
+          <div class="project-desc">
+            During my internship at the Nagpur Cyber Cell, assisted in reviewing real cyber crime cases — from online
+            financial
+            fraud and phishing attacks to social media misuse. Contributed preliminary technical analysis and APK-level
+            mobile malware investigation under officer supervision.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Digital Forensics</span>
+            <span class="tag">APK Analysis</span>
+            <span class="tag">OSINT</span>
+            <span class="tag">IT Act</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Credentials</div>
+        <h2 class="section-title">Certifications</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal">
+          <div class="cert-icon">🎯</div>
+          <div class="cert-info">
+            <div class="cert-name">Certified Ethical Hacker (CEH v13)</div>
+            <div class="cert-issuer">EC-Council / Simplilearn</div>
+            <span class="cert-status completed">Training Completed</span>
+            <span class="cert-status scheduled" style="margin-left: 6px;">Exam: March 2026</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">🌐</div>
+          <div class="cert-info">
+            <div class="cert-name">CompTIA Network+</div>
+            <div class="cert-issuer">CompTIA</div>
+            <span class="cert-status completed">Training – 11 CDUs</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">📚</div>
+          <div class="cert-info">
+            <div class="cert-name">Cybersecurity Courses</div>
+            <div class="cert-issuer">Great Learning</div>
+            <span class="cert-status completed">3 Courses Completed</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">🚩</div>
+          <div class="cert-info">
+            <div class="cert-name">CTF Participation</div>
+            <div class="cert-issuer">Multiple Platforms</div>
+            <span class="cert-status completed">July & August</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact Me</h2>
+        <div class="line-accent"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="contact-info-title">Let's Connect! 🤝</div>
+          <div class="contact-info-desc">
+            I'm currently open to internship opportunities, collaborative projects, and discussions around
+            cybersecurity.
+            Whether you have a question, an opportunity, or just want to talk tech — my inbox is always open!
+          </div>
+          <div class="contact-links">
+            <a href="mailto:vaishnavitrivedi240@gmail.com" class="contact-link" id="email-link">
+              <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email</span>
+                vaishnavitrivedi240@gmail.com
+              </div>
+            </a>
+            <a href="https://github.com/Vaishnavi-07823" target="_blank" rel="noopener" class="contact-link"
+              id="github-link">
+              <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">GitHub</span>
+                github.com/Vaishnavi-07823
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/vaishnavi-trivedi-8328a9296/" target="_blank" rel="noopener"
+              class="contact-link" id="linkedin-link">
+              <div class="contact-link-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">LinkedIn</span>
+                linkedin.com/in/vaishnavi-trivedi-8328a9296
+              </div>
+            </a>
+            <a href="tel:9604785331" class="contact-link" id="phone-link">
+              <div class="contact-link-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Phone</span>
+                +91 9604785331
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="reveal">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">YOUR NAME</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">EMAIL ADDRESS</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">SUBJECT</label>
+              <input type="text" id="subject" name="subject" placeholder="Internship Opportunity" required />
+            </div>
+            <div class="form-group">
+              <label for="message">MESSAGE</label>
+              <textarea id="message" name="message" rows="5" placeholder="Hey Vaishnavi, I'd love to connect..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">&lt; VT /&gt;</div>
+        <div class="footer-social">
+          <a href="https://github.com/Vaishnavi-07823" target="_blank" rel="noopener" title="GitHub"
+            id="footer-github"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/vaishnavi-trivedi-8328a9296/" target="_blank" rel="noopener" title="LinkedIn"
+            id="footer-linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:vaishnavitrivedi240@gmail.com" title="Email" id="footer-email"><i
+              class="fas fa-envelope"></i></a>
+        </div>
+        <div class="footer-text">
+          Crafted with <span class="heart">♥</span> by Vaishnavi Trivedi &nbsp;|&nbsp; © 2025 All rights reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button id="scroll-top" aria-label="Scroll to top" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
