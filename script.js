@@ -326,3 +326,32 @@ if (skillsSection) {
     setTimeout(() => card.classList.add('visible'), i * 100);
   });
 }
+
+// ===== PAGE TRANSITION ANIMATION =====
+document.querySelectorAll('a[href]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = link.getAttribute('href');
+    // Identify internal page links
+    if (target && target.endsWith('.html') && !link.hasAttribute('target')) {
+      e.preventDefault();
+      const transitionEl = document.getElementById('page-transition');
+      if (transitionEl) {
+        // Drop curtain
+        transitionEl.style.transform = 'translateY(0)';
+        setTimeout(() => {
+          window.location.href = target;
+        }, 500); // Wait 500ms
+      } else {
+        window.location.href = target;
+      }
+    }
+  });
+});
+
+// Lift curtain on active page load
+window.addEventListener('pageshow', () => {
+  const transitionEl = document.getElementById('page-transition');
+  if (transitionEl) {
+    transitionEl.style.transform = 'translateY(-100%)';
+  }
+});
