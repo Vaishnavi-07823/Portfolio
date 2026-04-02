@@ -331,16 +331,14 @@ if (skillsSection) {
 document.querySelectorAll('a[href]').forEach(link => {
   link.addEventListener('click', (e) => {
     const target = link.getAttribute('href');
-    // Identify internal page links
     if (target && target.endsWith('.html') && !link.hasAttribute('target')) {
       e.preventDefault();
       const transitionEl = document.getElementById('page-transition');
       if (transitionEl) {
-        // Drop curtain
-        transitionEl.style.transform = 'translateY(0)';
+        transitionEl.classList.add('active');
         setTimeout(() => {
           window.location.href = target;
-        }, 500); // Wait 500ms
+        }, 400);
       } else {
         window.location.href = target;
       }
@@ -348,10 +346,10 @@ document.querySelectorAll('a[href]').forEach(link => {
   });
 });
 
-// Lift curtain on active page load
+// Fade out on page load
 window.addEventListener('pageshow', () => {
   const transitionEl = document.getElementById('page-transition');
   if (transitionEl) {
-    transitionEl.style.transform = 'translateY(-100%)';
+    transitionEl.classList.remove('active');
   }
 });
