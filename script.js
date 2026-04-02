@@ -1,12 +1,39 @@
 /* ===================================================
-   Vaishnavi Trivedi – Portfolio Script (Multi-Page & Cyber Background)
+   Vaishnavi Trivedi – Portfolio Script (Enhanced Cyber)
    =================================================== */
+
+// ===== CUSTOM CURSOR =====
+const cursorDot = document.getElementById('custom-cursor');
+const cursorTrail = document.getElementById('custom-cursor-trail');
+
+if (cursorDot && cursorTrail) {
+  document.addEventListener('mousemove', (e) => {
+    // Inner dot follows instantly
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
+    // Trail follows with CSS transition lag
+    cursorTrail.style.left = e.clientX + 'px';
+    cursorTrail.style.top = e.clientY + 'px';
+  });
+
+  // Hover effect on interactive elements
+  const hoverTargets = document.querySelectorAll('a, button, .btn, .stat-item, .nav-cta');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorDot.classList.add('hovering');
+      cursorTrail.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorDot.classList.remove('hovering');
+      cursorTrail.classList.remove('hovering');
+    });
+  });
+}
 
 // ===== SCROLL & ACTIVE NAVBAR =====
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-// Set active link based on current URL path
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 navLinks.forEach(link => {
   if (link.getAttribute('href') === currentPath) {
@@ -17,11 +44,9 @@ navLinks.forEach(link => {
 });
 
 window.addEventListener('scroll', () => {
-  // Navbar blur background
   if (window.scrollY > 50) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 
-  // Scroll-to-top button
   const scrollTopBtn = document.getElementById('scroll-top');
   if (scrollTopBtn) {
     if (window.scrollY > 400) scrollTopBtn.classList.add('visible');
@@ -55,7 +80,24 @@ if (scrollTopBtn) {
   });
 }
 
-// ===== TARGETED TYPING ANIMATION (Only for Hero/Index) =====
+// ===== TERMINAL INIT LINE TYPING =====
+const initTextEl = document.getElementById('init-text');
+if (initTextEl) {
+  const initString = 'Initializing Cybersecurity Profile...';
+  let initIndex = 0;
+
+  function typeInit() {
+    if (initIndex < initString.length) {
+      initTextEl.textContent += initString.charAt(initIndex);
+      initIndex++;
+      setTimeout(typeInit, 50);
+    }
+  }
+  // Start after a small delay
+  setTimeout(typeInit, 300);
+}
+
+// ===== TYPING ANIMATION (Role Strings) =====
 const typingEl = document.getElementById('typing-text');
 if (typingEl) {
   const typingStrings = [
@@ -96,7 +138,8 @@ if (typingEl) {
     }
     setTimeout(typeWriter, delay);
   }
-  typeWriter();
+  // Start typing after init line finishes (~2s)
+  setTimeout(typeWriter, 2200);
 }
 
 // ===== SCROLL REVEAL (Intersection Observer) =====
@@ -116,7 +159,7 @@ if (revealEls.length > 0) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-// ===== BLACK HAT CYBER MATRIX BACKGROUND =====
+// ===== CYBER BACKGROUND (Binary Rain + Network Grid) =====
 const canvas = document.getElementById('cyber-matrix');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -129,29 +172,28 @@ if (canvas) {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  /* Matrix Rain Variables */
-  const letters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789§*±!@#$%^&*()';
-  const charArray = letters.split('');
+  /* Binary Rain — only 0s and 1s, slow and subtle */
+  const binaryChars = '01';
   const fontSize = 14;
-  let columns = width / fontSize;
+  let columns = Math.floor(width / fontSize);
   let drops = [];
   for (let i = 0; i < columns; i++) drops[i] = Math.random() * -100;
 
-  /* Network Nodes Variables */
+  /* Network Nodes — particle grid with connections */
   const nodes = [];
-  const NODE_COUNT = 60;
+  const NODE_COUNT = 50;
   for (let i = 0; i < NODE_COUNT; i++) {
     nodes.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5,
-      size: Math.random() * 2 + 1,
-      baseColor: Math.random() > 0.5 ? '0,255,136' : '0,212,255'
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      size: Math.random() * 1.5 + 0.8,
+      baseColor: Math.random() > 0.6 ? '0,255,136' : '0,212,255'
     });
   }
 
-  /* Interaction Variables */
+  /* Mouse interaction */
   let mouse = { x: null, y: null };
   window.addEventListener('mousemove', (event) => {
     mouse.x = event.x;
@@ -162,102 +204,104 @@ if (canvas) {
     mouse.y = null;
   });
 
-  function drawMatrix() {
-    // Slight fade for matrix trail
-    ctx.fillStyle = 'rgba(6, 8, 17, 0.15)';
+  function drawBinaryRain() {
+    ctx.fillStyle = 'rgba(6, 8, 17, 0.12)';
     ctx.fillRect(0, 0, width, height);
 
     ctx.font = fontSize + 'px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
 
-    // Draw Matrix Characters
     for (let i = 0; i < drops.length; i++) {
-      const text = charArray[Math.floor(Math.random() * charArray.length)];
-      
-      // Make leading character brighter
-      ctx.fillStyle = Math.random() > 0.95 ? '#fff' : '#00ff88';
-      
+      const text = binaryChars[Math.floor(Math.random() * binaryChars.length)];
+
+      // Subtle green with occasional bright flash
+      const brightness = Math.random();
+      if (brightness > 0.97) {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      } else if (brightness > 0.85) {
+        ctx.fillStyle = 'rgba(0, 255, 136, 0.7)';
+      } else {
+        ctx.fillStyle = 'rgba(0, 255, 136, 0.35)';
+      }
+
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-      if (drops[i] * fontSize > height && Math.random() > 0.975) {
+      // Slower fall — higher threshold means less frequent resets
+      if (drops[i] * fontSize > height && Math.random() > 0.985) {
         drops[i] = 0;
       }
-      drops[i]++;
+      drops[i] += 0.5; // Slow speed
     }
   }
 
-  function drawCyberNodes() {
+  function drawNetworkGrid() {
     nodes.forEach(node => {
-      // Move node
       node.x += node.vx;
       node.y += node.vy;
 
-      // Bounce off walls
       if (node.x <= 0 || node.x >= width) node.vx *= -1;
       if (node.y <= 0 || node.y >= height) node.vy *= -1;
 
-      // Draw Node
+      // Draw node dot
       ctx.beginPath();
       ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${node.baseColor}, 0.8)`;
+      ctx.fillStyle = `rgba(${node.baseColor}, 0.5)`;
       ctx.fill();
 
-      // Connect Nodes within range
+      // Draw connections (faint digital grid lines)
       nodes.forEach(otherNode => {
         const dx = node.x - otherNode.x;
         const dy = node.y - otherNode.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 120) {
+        if (dist < 140) {
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(otherNode.x, otherNode.y);
-          ctx.strokeStyle = `rgba(${node.baseColor}, ${0.8 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = `rgba(${node.baseColor}, ${0.3 * (1 - dist / 140)})`;
+          ctx.lineWidth = 0.4;
           ctx.stroke();
         }
       });
 
-      // Interactive Glowing Mouse Connection
+      // Mouse interaction — subtle glow connection
       if (mouse.x && mouse.y) {
         const mdx = node.x - mouse.x;
         const mdy = node.y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mDist < 180) {
+        if (mDist < 160) {
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(0, 255, 136, ${0.9 * (1 - mDist / 180)})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(0, 255, 136, ${0.5 * (1 - mDist / 160)})`;
+          ctx.lineWidth = 0.6;
           ctx.stroke();
 
-          // Push nodes slightly away from mouse (Repel effect)
-          node.x += (mdx / mDist) * 1.5;
-          node.y += (mdy / mDist) * 1.5;
+          // Gentle push
+          node.x += (mdx / mDist) * 0.8;
+          node.y += (mdy / mDist) * 0.8;
         }
       }
     });
   }
 
   function renderCyberBackground() {
-    drawMatrix();
-    drawCyberNodes();
+    drawBinaryRain();
+    drawNetworkGrid();
     requestAnimationFrame(renderCyberBackground);
   }
-  
-  // Start the background animation
+
   renderCyberBackground();
 
-  // Handle resizing for matrix array correctly
   window.addEventListener('resize', () => {
-    columns = width / fontSize;
+    columns = Math.floor(width / fontSize);
     const oldLength = drops.length;
     drops.length = columns;
     for (let i = oldLength; i < columns; i++) drops[i] = Math.random() * -100;
   });
 }
 
-// ===== CONTACT FORM SUBMIT (Only on Contact Page) =====
+// ===== CONTACT FORM SUBMIT =====
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -283,42 +327,50 @@ document.querySelectorAll('.project-card, .skill-card, .cert-card, .timeline-car
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 255, 136, 0.08) 0%, rgba(13, 17, 23, 0.8) 70%)`;
+    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 255, 136, 0.06) 0%, rgba(13, 17, 23, 0.8) 70%)`;
   });
   card.addEventListener('mouseleave', () => {
     card.style.background = '';
   });
 });
 
-// ===== STAT ANIMATION (Only for Hero/Index) =====
+// ===== STAT COUNT-UP ANIMATION =====
 function animateCounter(el, target, suffix = '') {
   let current = 0;
-  const isFloat = target % 1 !== 0;
-  const step = target / 50;
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
+  const duration = 1500;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Ease-out curve for smooth deceleration
+    const eased = 1 - Math.pow(1 - progress, 3);
+    current = Math.round(eased * target);
+
+    el.textContent = current + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
     }
-    el.textContent = isFloat ? current.toFixed(1) + suffix : Math.floor(current) + suffix;
-  }, 30);
+  }
+  requestAnimationFrame(update);
 }
 
 const heroSection = document.getElementById('hero');
 if (heroSection) {
-  const statNumbers = document.querySelectorAll('.stat-number');
+  const statNumbers = document.querySelectorAll('.stat-number[data-target]');
   statNumbers.forEach(el => {
-    const text = el.textContent.trim();
-    const num = parseFloat(text);
-    if (!isNaN(num)) {
-      const suffix = text.replace(num.toString(), '').replace(String(Math.floor(num)), '');
-      setTimeout(() => animateCounter(el, num, suffix), 500); // Small delay on load
+    const target = parseInt(el.getAttribute('data-target'));
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (!isNaN(target)) {
+      // Start count-up after hero animations complete
+      setTimeout(() => animateCounter(el, target, suffix), 1800);
     }
   });
 }
 
-// ===== SKILLS STAGGER (Only for Skills Page) =====
+// ===== SKILLS STAGGER =====
 const skillsSection = document.getElementById('skills');
 if (skillsSection) {
   const cards = document.querySelectorAll('.skill-card');
@@ -327,7 +379,7 @@ if (skillsSection) {
   });
 }
 
-// ===== PAGE TRANSITION ANIMATION =====
+// ===== PAGE TRANSITION =====
 document.querySelectorAll('a[href]').forEach(link => {
   link.addEventListener('click', (e) => {
     const target = link.getAttribute('href');
@@ -346,7 +398,6 @@ document.querySelectorAll('a[href]').forEach(link => {
   });
 });
 
-// Fade out on page load
 window.addEventListener('pageshow', () => {
   const transitionEl = document.getElementById('page-transition');
   if (transitionEl) {

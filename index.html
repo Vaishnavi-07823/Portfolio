@@ -18,6 +18,10 @@
 <body>
   <div id="page-transition"></div>
 
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-trail" id="custom-cursor-trail"></div>
+
   <!-- Animated Cyber Background -->
   <div class="bg-vignette"></div>
   <canvas id="cyber-matrix"></canvas>
@@ -49,38 +53,57 @@
     <div class="container">
       <div class="hero-content-centered">
         <div class="hero-text-centered">
-          <div class="hero-eyebrow">Hello, World! I am</div>
-          <h1 class="hero-name">Vaishnavi Trivedi</h1>
-          <div class="hero-typing-container">
+
+          <!-- Terminal Init Line -->
+          <div class="hero-init-line" id="hero-init">
+            <span class="init-prompt">root@portfolio:~$</span>
+            <span class="init-text" id="init-text"></span>
+            <span class="init-cursor">▊</span>
+          </div>
+
+          <!-- Eyebrow -->
+          <div class="hero-eyebrow hero-reveal" style="--delay: 0.3s">Hello, World! I am</div>
+
+          <!-- Name -->
+          <h1 class="hero-name hero-reveal" style="--delay: 0.5s">Vaishnavi Trivedi</h1>
+
+          <!-- Typing Animation -->
+          <div class="hero-typing-container hero-reveal" style="--delay: 0.7s">
             <span id="typing-text"></span><span class="cursor"></span>
           </div>
-          <p class="hero-desc-centered">
+
+          <!-- Description -->
+          <p class="hero-desc-centered hero-reveal" style="--delay: 0.9s">
             A passionate Cybersecurity student with hands-on experience at the Cyber Police Station, Nagpur.
             I specialize in vulnerability assessment, ethical hacking, and network defense — building a safer digital
             world, one exploit at a time.
           </p>
-          <div class="hero-btns-centered">
+
+          <!-- Buttons -->
+          <div class="hero-btns-centered hero-reveal" style="--delay: 1.1s">
             <a href="contact.html" class="btn btn-primary" id="hero-contact-btn">
               <i class="fas fa-terminal"></i> Get in Touch
             </a>
-            <a href="resume.pdf" class="btn btn-outline" target="_blank" title="View Resume">
+            <a href="VAISHNAVI_TRIVEDI_RESUME-1.pdf" class="btn btn-outline" target="_blank" title="View Resume">
               <i class="fas fa-file-pdf"></i> View Resume
             </a>
             <a href="certifications.html" class="btn btn-outline" id="hero-cert-btn" title="View Certifications">
               <i class="fas fa-certificate"></i> View Certifications
             </a>
           </div>
-          <div class="hero-stats-centered">
+
+          <!-- Stats -->
+          <div class="hero-stats-centered hero-reveal" style="--delay: 1.3s">
             <div class="stat-item">
-              <div class="stat-number">2+</div>
+              <div class="stat-number" data-target="2" data-suffix="+">0</div>
               <div class="stat-label">Years Learning</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">10+</div>
+              <div class="stat-number" data-target="10" data-suffix="+">0</div>
               <div class="stat-label">Tools Mastered</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">3+</div>
+              <div class="stat-number" data-target="3" data-suffix="+">0</div>
               <div class="stat-label">Certifications</div>
             </div>
             <div class="stat-item">
@@ -88,6 +111,7 @@
               <div class="stat-label">Competitor</div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
