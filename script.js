@@ -102,6 +102,7 @@ const typingEl = document.getElementById('typing-text');
 if (typingEl) {
   const typingStrings = [
     'Cybersecurity Student',
+    'Cyber Forensics & AppSec',
     'Ethical Hacker',
     'CEH v13 Trained',
     'CTF Enthusiast',
@@ -364,8 +365,10 @@ if (heroSection) {
     const target = parseInt(el.getAttribute('data-target'));
     const suffix = el.getAttribute('data-suffix') || '';
     if (!isNaN(target)) {
-      // Start count-up after hero animations complete
-      setTimeout(() => animateCounter(el, target, suffix), 1800);
+      // Ensure real numbers are displayed immediately
+      el.textContent = target + suffix;
+      // Start count-up animation smoothly
+      setTimeout(() => animateCounter(el, target, suffix), 800);
     }
   });
 }

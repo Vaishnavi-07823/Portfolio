@@ -401,6 +401,16 @@ a, button, input, textarea, select, [role="button"] {
   opacity: 0;
 }
 
+.hero-headline {
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: var(--neon-cyan);
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
 @keyframes nameShimmer {
   0%, 100% { background-position: 0% center; }
   50% { background-position: 100% center; }
@@ -920,6 +930,31 @@ a, button, input, textarea, select, [role="button"] {
   background: var(--accent-dim);
   border: 1px solid rgba(0, 255, 136, 0.2);
   border-radius: 12px;
+}
+
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--neon-green);
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.15);
+  margin-bottom: 6px;
+}
+
+.project-icon-top {
+  font-size: 2.2rem;
+  color: var(--neon-cyan);
+  margin-bottom: 8px;
 }
 .project-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
 .project-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8; flex-grow: 1; margin-bottom: 8px;}
